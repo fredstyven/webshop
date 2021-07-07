@@ -7,7 +7,7 @@
             <li>Category: {{ product.category }}</li>
             <li>Description: {{ product.description }}</li>
             <li><router-link :to="`/products/`"> Back to products</router-link></li>
-            <img :src="product.image" width=250>
+            <img :src="`https://localhost:5001/api/WebshopItems/productimages/${product.id}`" width=250>
         </ul>
       <p>{{ message }}</p>
   </section>

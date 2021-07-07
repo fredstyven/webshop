@@ -2,6 +2,7 @@
   <div>
         <ul>
             <li v-for="(product, index) in products" :key="title + index">
+                <span>ID: {{ product.id }} - </span>
                 <span>{{ product.title }}</span>
                 <span> - Price: {{ product.price }}</span>
                 <router-link :to="`/products/${product.id}`"> Show details</router-link>

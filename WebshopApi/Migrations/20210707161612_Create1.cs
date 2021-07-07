@@ -15,8 +15,7 @@ namespace WebshopApi.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<float>(type: "REAL", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    Category = table.Column<string>(type: "TEXT", nullable: true),
-                    Image = table.Column<string>(type: "TEXT", nullable: true)
+                    Category = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

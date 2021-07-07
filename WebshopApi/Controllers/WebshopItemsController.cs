@@ -41,6 +41,16 @@ namespace WebshopApi.Controllers
             return WebshopItem;
         }
 
+        // GET: api/WebshopItems/productimages/1
+        [HttpGet("productimages/{id}")]
+        
+        public async Task<ActionResult<WebshopItem>> GetProductImage(long id)
+        {       
+            var WebshopItem = await _context.WebshopItems.FindAsync(id);
+            Byte[] b = System.IO.File.ReadAllBytes(@"C:\dev\webshop\WebshopApi\db_productimages\ws_" + WebshopItem.Id + ".jpg");        
+            return File(b, "image/jpeg");
+        }
+
         // PUT: api/WebshopItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

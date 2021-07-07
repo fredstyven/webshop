@@ -8,7 +8,7 @@ using WebshopApi.Models;
 namespace WebshopApi.Migrations
 {
     [DbContext(typeof(WebshopContext))]
-    [Migration("20210707093632_Create1")]
+    [Migration("20210707161612_Create1")]
     partial class Create1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,6 @@ namespace WebshopApi.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
                     b.Property<float>("Price")
