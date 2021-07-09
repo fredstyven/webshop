@@ -5,6 +5,9 @@
                 <span>ID: {{ product.id }} - </span>
                 <span>{{ product.title }}</span>
                 <span> - Price: {{ product.price }}</span>
+                <button @click="removeFromCart()" v-if="isInCart()">remove from cart</button>
+                <button @click="addToCart(product)" v-else>add to cart</button>
+                <button @click="$router.push('/admin')">check out</button>
                 <router-link :to="`/products/${product.id}`"> Show details</router-link>
             </li>
         </ul>
@@ -21,7 +24,8 @@ export default {
         this.getProducts()
     },
     data: () => ({
-        products: []
+        products: [],
+        cart: []
     }),
     methods: {
         getProducts() {
@@ -32,7 +36,31 @@ export default {
                 }).catch(error => {
                     console.log('error', error)
                 })
-        }
+        },
+        isInCart() {
+            //return this.cart.some(prod => prod.id === item.id);
+            //return this.cart.includes(item);
+                /*console.log("TRUE");
+            return true;
+            }
+            else {return false;}*/
+            //return Boolean(cartItem);
+            //return false;
+        },
+        addToCart(item) {
+            let copyItem = JSON.parse(JSON.stringify(item));
+            if(!(this.cart.some(product => product.id === copyItem.id))) {
+                //let copyItem = JSON.parse(JSON.stringify(item));
+                this.cart.push(copyItem);
+
+            }
+            this.cart.forEach((x) => console.log(x));
+        
+        },
+        removeFromCart() {
+            /*let copyItem = JSON.parse(JSON.stringify(item));
+            this.cart.splice(copyItem, 1);*/
+        },
     }
 }
 </script>
